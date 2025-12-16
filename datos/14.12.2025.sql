@@ -1,0 +1,18 @@
+-- Tabla de usuarios
+CREATE TABLE users (
+  id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  username VARCHAR(255) UNIQUE NOT NULL,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL
+);
+
+-- Tabla de TODOs
+CREATE TABLE todos (
+  id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  api_id INTEGER,
+  title VARCHAR(255) NOT NULL,
+  completed BOOLEAN NOT NULL,
+  user_id INTEGER NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
